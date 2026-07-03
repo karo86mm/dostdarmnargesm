@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 We Are Team Happiness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0a0e27;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Lines */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            width: 200%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(100, 255, 218, 0.3) 20%, 
+                rgba(157, 78, 221, 0.3) 50%, 
+                rgba(100, 255, 218, 0.3) 80%, 
+                transparent 100%);
+            animation: slideLines 15s linear infinite;
+            pointer-events: none;
+        }
+
+        body::before {
+            top: 20%;
+            transform: rotate(-15deg);
+        }
+
+        body::after {
+            bottom: 30%;
+            transform: rotate(15deg);
+            animation-delay: -7s;
+        }
+
+        @keyframes slideLines {
+            0% { transform: translateX(-50%) rotate(-15deg); }
+            100% { transform: translateX(0%) rotate(-15deg); }
+        }
+
+        /* Particle Effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(100, 255, 218, 0.4);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Elegant Glow Lines */
+        .glow-line {
+            position: fixed;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                transparent 0%,
+                rgba(157, 78, 221, 0.2) 50%,
+                transparent 100%);
+            animation: glowPulse 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .glow-line:nth-child(1) { left: 15%; animation-delay: 0s; }
+        .glow-line:nth-child(2) { left: 45%; animation-delay: 1.3s; }
+        .glow-line:nth-child(3) { right: 25%; animation-delay: 2.6s; }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.2; filter: blur(2px); }
+            50% { opacity: 0.8; filter: blur(8px); }
+        }
+
+        .container {
+            background: rgba(20, 25, 50, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 20px auto;
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.37),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
+                0 0 40px rgba(100, 255, 218, 0.1);
+            position: relative;
+            z-index: 10;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            background: linear-gradient(135deg, #64ffda 0%, #9d4edd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            padding: 0 10px;
+            filter: drop-shadow(0 0 20px rgba(100, 255, 218, 0.3));
+        }
+
+        h2 {
+            color: #64ffda;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        .user-select {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .user-btn {
+            flex: 1;
+            padding: 20px;
+            border: 2px solid rgba(100, 255, 218, 0.2);
+            border-radius: 15px;
+            background: rgba(100, 255, 218, 0.05);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 1.1em;
+            color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .user-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(100, 255, 218, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .user-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .user-btn:hover {
+            border-color: rgba(100, 255, 218, 0.4);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .user-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .user-btn.active {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(157, 78, 221, 0.2));
+            border-color: #64ffda;
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.4);
+            color: #64ffda;
+        }
+
+        .start-btn, .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #64ffda 0%, #9d4edd 100%);
+            color: #0a0e27;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+        }
+
+        .start-btn:hover:not(:disabled), .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(100, 255, 218, 0.5);
+        }
+
+        .start-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .back-btn, .history-btn, .chart-btn, .settings-btn {
+            background: rgba(100, 255, 218, 0.1);
+            backdrop-filter: blur(10px);
+            color: #64ffda;
+            padding: 10px 20px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9em;
+        }
+
+        .back-btn:hover, .history-btn:hover, .chart-btn:hover, .settings-btn:hover {
+            background: rgba(100, 255, 218, 0.2);
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .date-display {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(157, 78, 221, 0.2));
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            color: #64ffda;
+            font-weight: bold;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .score-display {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.15), rgba(157, 78, 221, 0.15));
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #64ffda;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .score-number {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 10px 0;
+            text-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+        }
+
+        .form-section {
+            background: rgba(10, 14, 39, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.3em;
+            color: #64ffda;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .time-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            color: #e0e0e0;
+            font-size: 0.95em;
+        }
+
+        .input-group input {
+            padding: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+            background: rgba(100, 255, 218, 0.05);
+            color: #e0e0e0;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #64ffda;
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .stars {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .star {
+            font-size: 2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            filter: grayscale(100%);
+        }
+
+        .star.active {
+            filter: grayscale(0%) drop-shadow(0 0 10px #64ffda);
+            transform: scale(1.2);
+        }
+
+        .meal-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .meal-option {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(100, 255, 218, 0.05);
+            color: #e0e0e0;
+        }
+
+        .meal-option:hover {
+            background: rgba(100, 255, 218, 0.1);
+            border-color: rgba(100, 255, 218, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .meal-option.selected {
+            border-color: #64ffda;
+            background: rgba(100, 255, 218, 0.2);
+            color: #64ffda;
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+        }
+
+        .prayer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .prayer-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(100, 255, 218, 0.05);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            color: #e0e0e0;
+        }
+
+        .prayer-item:hover {
+            background: rgba(100, 255, 218, 0.1);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+
+        .prayer-checkbox {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: #64ffda;
+        }
+
+        .satisfaction-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 10px;
+            background: linear-gradient(to right, #ff6b6b, #ffd93d, #6bcf7f, #64ffda);
+            outline: none;
+            -webkit-appearance: none;
+            margin: 20px 0;
+        }
+
+        .satisfaction-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #64ffda;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+        }
+
+        .satisfaction-slider::-moz-range-thumb {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #64ffda;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+            border: none;
+        }
+
+        .satisfaction-display {
+            text-align: center;
+            font-size: 3em;
+            margin: 10px 0;
+        }
+
+        .number-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            background: rgba(100, 255, 218, 0.05);
+            color: #e0e0e0;
+        }
+
+        .number-input:focus {
+            outline: none;
+            border-color: #64ffda;
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+        }
+
+        .date-selector {
+            margin-bottom: 20px;
+        }
+
+        .date-selector input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            font-size: 1em;
+            background: rgba(100, 255, 218, 0.05);
+            color: #e0e0e0;
+        }
+
+        .date-selector input::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+
+        .history-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            background: rgba(100, 255, 218, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .history-item:hover {
+            border-color: #64ffda;
+            background: rgba(100, 255, 218, 0.1);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+            transform: translateX(-5px);
+        }
+
+        .history-date {
+            font-weight: bold;
+            color: #64ffda;
+            margin-bottom: 5px;
+        }
+
+        .history-score {
+            display: inline-block;
+            background: linear-gradient(135deg, #64ffda 0%, #9d4edd 100%);
+            color: #0a0e27;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .success-animation {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(20, 25, 50, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #64ffda;
+            box-shadow: 0 0 50px rgba(100, 255, 218, 0.5);
+            text-align: center;
+            z-index: 1000;
+            animation: popIn 0.5s ease;
+            color: #e0e0e0;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+        }
+
+        /* Modern Chart */
+        .modern-chart {
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-chart::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .chart-title {
+            color: #64ffda;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .chart-type-selector {
+            display: flex;
+            gap: 8px;
+            background: rgba(100, 255, 218, 0.05);
+            padding: 5px;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            flex-wrap: wrap;
+        }
+
+        .chart-type-btn {
+            padding: 8px 16px;
+            background: transparent;
+            color: #64ffda;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-type-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(100, 255, 218, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .chart-type-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .chart-type-btn:hover {
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+        }
+
+        .chart-type-btn.active {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(157, 78, 221, 0.2));
+            border-color: #64ffda;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+        }
+
+        .chart-type-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .chart-canvas {
+            position: relative;
+            height: 350px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(100, 255, 218, 0.08);
+            z-index: 1;
+        }
+
+        .grid-line-elegant {
+            stroke: rgba(100, 255, 218, 0.08);
+            stroke-width: 1;
+            stroke-dasharray: 5, 5;
+        }
+
+        .axis-label-elegant {
+            fill: #64ffda;
+            font-size: 11px;
+            opacity: 0.7;
+        }
+
+        .chart-line-elegant {
+            fill: none;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 8px currentColor);
+        }
+
+        .chart-line-user1 {
+            stroke: url(#gradientUser1);
+        }
+
+        .chart-line-user2 {
+            stroke: url(#gradientUser2);
+        }
+
+        .chart-point-elegant {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .chart-point-elegant:hover {
+            transform: scale(1.5);
+            filter: drop-shadow(0 0 12px currentColor);
+        }
+
+        .chart-point-user1 {
+            fill: #64ffda;
+        }
+
+        .chart-point-user2 {
+            fill: #9d4edd;
+        }
+
+        .elegant-tooltip {
+            position: fixed;
+            background: rgba(10, 14, 39, 0.95);
+            border: 2px solid #64ffda;
+            border-radius: 12px;
+            padding: 15px;
+            color: #fff;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 32px rgba(100, 255, 218, 0.5);
+            z-index: 2000;
+            max-width: 280px;
+        }
+
+        .elegant-tooltip.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tooltip-date {
+            color: #64ffda;
+            font-weight: 600;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .tooltip-content {
+            line-height: 1.6;
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .legend-item-elegant {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: rgba(100, 255, 218, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .legend-dot.user1 {
+            background: #64ffda;
+            color: #64ffda;
+        }
+
+        .legend-dot.user2 {
+            background: #9d4edd;
+            color: #9d4edd;
+        }
+
+        .legend-label {
+            color: #e0e0e0;
+            font-size: 0.95em;
+        }
+
+        .settings-group {
+            background: rgba(100, 255, 218, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .settings-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            color: #e0e0e0;
+        }
+
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+
+        .password-section {
+            margin-top: 20px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            color: #e0e0e0;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #64ffda;
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+        }
+
+        .set-password-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #64ffda 0%, #9d4edd 100%);
+            color: #0a0e27;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .set-password-btn:hover {
+            box-shadow: 0 0 25px rgba(100, 255, 218, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .password-status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        .password-status.success {
+            background: rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+
+        .password-status.error {
+            background: rgba(255, 107, 107, 0.1);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+
+        .login-container {
+            max-width: 450px;
+        }
+
+        .password-prompt {
+            margin-bottom: 20px;
+        }
+
+        .password-prompt p {
+            color: #e0e0e0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Love Input */
+        .love-options {
+            display: grid;
+            gap: 12px;
+        }
+
+        .love-option {
+            padding: 15px;
+            border: 2px solid rgba(100, 255, 218, 0.2);
+            border-radius: 12px;
+            background: rgba(100, 255, 218, 0.05);
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        .love-option:hover {
+            background: rgba(100, 255, 218, 0.1);
+            border-color: rgba(100, 255, 218, 0.4);
+            transform: translateX(-5px);
+        }
+
+        .love-option.selected {
+            border-color: #ff1493;
+            background: rgba(255, 20, 147, 0.2);
+            color: #ff1493;
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .time-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-group {
+                flex-wrap: wrap;
+            }
+
+            .chart-canvas {
+                height: 300px;
+            }
+
+            .chart-type-selector {
+                justify-content: center;
+            }
+
+            .chart-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="particles" id="particles"></div>
+    <div class="glow-line"></div>
+    <div class="glow-line"></div>
+    <div class="glow-line"></div>
+
+    <!-- صفحه ورود با رمز -->
+    <div id="passwordScreen" class="container login-container hidden">
+        <h1>🔐 ورود به سیستم</h1>
+        <div class="password-prompt">
+            <p>لطفاً رمز عبور را وارد کنید:</p>
+            <input type="password" class="password-input" id="loginPassword" placeholder="رمز عبور">
+            <button class="start-btn" onclick="checkPassword()" style="margin-top: 15px;">
+                ورود 🚀
+            </button>
+            <div id="loginError" class="password-status error" style="margin-top: 15px; display: none;">
+                رمز عبور اشتباه است!
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحه انتخاب کاربر -->
+    <div id="loginScreen" class="container">
+        <h1>🎯 We Are Team Happiness</h1>
+        <p class="subtitle">انقدر ادامه میدیم تا بسازیمش دخترم 💪</p>
+        
+        <div class="user-select">
+            <div class="user-btn" id="user1Btn">
+                <span>👨 آقا کارو</span>
+            </div>
+            <div class="user-btn" id="user2Btn">
+                <span>👩 نرگس خانومم</span>
+            </div>
+        </div>
+
+        <button class="start-btn" id="startBtn" disabled>
+            بریم تا موفقیت 🤍
+        </button>
+    </div>
+
+    <!-- صفحه فرم -->
+    <div id="mainScreen" class="container hidden">
+        <div class="top-bar">
+            <button class="back-btn" id="logoutBtn">← خروج</button>
+            <div class="btn-group">
+                <button class="chart-btn" id="chartBtn">📊 نمودار</button>
+                <button class="history-btn" id="historyBtn">📖 تاریخچه</button>
+                <button class="settings-btn" id="settingsBtn">⚙️ تنظیمات</button>
+            </div>
+        </div>
+
+        <div class="date-selector">
+            <input type="date" id="selectedDate">
+        </div>
+
+        <div class="date-display" id="dateDisplay"></div>
+
+        <div class="score-display">
+            <div>امتیاز امروز</div>
+            <div class="score-number" id="scoreNumber">0</div>
+            <div>از 100</div>
+        </div>
+
+        <!-- بخش خواب -->
+        <div class="form-section">
+            <div class="section-title">😴 خواب</div>
+            <div class="time-inputs">
+                <div class="input-group">
+                    <label>ساعت خواب:</label>
+                    <input type="time" id="bedTime" value="23:00">
+                </div>
+                <div class="input-group">
+                    <label>ساعت بیدار شدن:</label>
+                    <input type="time" id="wakeTime" value="07:00">
+                </div>
+            </div>
+            <label style="display: block; text-align: center; margin-bottom: 10px; color: #e0e0e0;">
+                کیفیت خواب:
+            </label>
+            <div class="stars" id="sleepQuality">
+                <span class="star" data-value="1">⭐</span>
+                <span class="star" data-value="2">⭐</span>
+                <span class="star" data-value="3">⭐</span>
+                <span class="star" data-value="4">⭐</span>
+                <span class="star" data-value="5">⭐</span>
+            </div>
+        </div>
+
+        <!-- بخش غذا -->
+        <div class="form-section">
+            <div class="section-title">🍽️ تغذیه</div>
+            
+            <label style="color: #e0e0e0; margin-bottom: 8px; display: block;">صبحانه:</label>
+            <div class="meal-options" id="breakfast">
+                <div class="meal-option" data-value="0">نخوردم</div>
+                <div class="meal-option" data-value="1">کم خوردم</div>
+                <div class="meal-option selected" data-value="2">خوب خوردم</div>
+            </div>
+
+            <label style="color: #e0e0e0; margin-bottom: 8px; display: block;">ناهار:</label>
+            <div class="meal-options" id="lunch">
+                <div class="meal-option" data-value="0">نخوردم</div>
+                <div class="meal-option" data-value="1">کم خوردم</div>
+                <div class="meal-option selected" data-value="2">خوب خوردم</div>
+            </div>
+
+            <label style="color: #e0e0e0; margin-bottom: 8px; display: block;">شام:</label>
+            <div class="meal-options" id="dinner">
+                <div class="meal-option" data-value="0">نخوردم</div>
+                <div class="meal-option" data-value="1">کم خوردم</div>
+                <div class="meal-option selected" data-value="2">خوب خوردم</div>
+            </div>
+
+            <div class="input-group" style="margin-top: 15px;">
+                <label>💧 تعداد لیوان آب:</label>
+                <input type="number" class="number-input" id="waterGlasses" value="8" min="0" max="20">
+            </div>
+        </div>
+
+        <!-- بخش نماز -->
+        <div class="form-section">
+            <div class="section-title">🕌 نماز</div>
+            <div class="prayer-grid">
+                <label class="prayer-item">
+                    <input type="checkbox" class="prayer-checkbox" id="fajr">
+                    <span>صبح</span>
+                </label>
+                <label class="prayer-item">
+                    <input type="checkbox" class="prayer-checkbox" id="dhuhr">
+                    <span>ظهر</span>
+                </label>
+                <label class="prayer-item">
+                    <input type="checkbox" class="prayer-checkbox" id="asr">
+                    <span>عصر</span>
+                </label>
+                <label class="prayer-item">
+                    <input type="checkbox" class="prayer-checkbox" id="maghrib">
+                    <span>مغرب</span>
+                </label>
+                <label class="prayer-item">
+                    <input type="checkbox" class="prayer-checkbox" id="isha">
+                    <span>عشا</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- بخش مطالعه -->
+        <div class="form-section">
+            <div class="section-title">📚 مطالعه</div>
+            <div class="input-group">
+                <label>تعداد ساعت:</label>
+                <input type="number" class="number-input" id="studyHours" value="2" min="0" max="24" step="0.5">
+            </div>
+        </div>
+
+        <!-- بخش رضایت -->
+        <div class="form-section">
+            <div class="section-title">💭 رضایت از روز</div>
+            <div class="satisfaction-display" id="satisfactionEmoji">😊</div>
+            <input type="range" class="satisfaction-slider" id="satisfaction" 
+                   min="1" max="4" value="3">
+        </div>
+
+        <!-- بخش عشق ❤️ -->
+        <div class="form-section">
+            <div class="section-title">❤️ نرگس جونم رو چقدر دوست دارم؟</div>
+            <div class="love-options">
+                <div class="love-option" onclick="setLove('بی اندازه زیاد عاشقشم جونمم براش میدم')">
+                    凉懶 بی اندازه زیاد عاشقشم جونمم براش میدم
+               </div>
+                <div class="love-option" onclick="setLove('باهاش قهرم نمیگم چقدر بی اندازه عاشقشم')">
+                     باهاش قهرم نمیگم چقدر بی اندازه عاشقشم
+                </div>
+            </div>
+        </div>
+        <button class="submit-btn" id="submitBtn">
+            💾 ثبت روز
+        </button>
+    </div>
+
+    <!-- صفحه نمودار -->
+    <div id="chartScreen" class="container hidden">
+        <div class="top-bar">
+            <button class="back-btn" id="backFromChart">← بازگشت</button>
+        </div>
+
+        <div class="modern-chart">
+            <div class="chart-header">
+                <div class="chart-title">📊 نمودار رشد ما</div>
+                <div class="chart-type-selector">
+                    <button class="chart-type-btn active" data-type="all">
+                        <span>📈 همه</span>
+                    </button>
+                    <button class="chart-type-btn" data-type="sleep">
+                        <span>😴 خواب</span>
+                    </button>
+                    <button class="chart-type-btn" data-type="food">
+                        <span>🍽️ غذا</span>
+                    </button>
+                    <button class="chart-type-btn" data-type="prayer">
+                        <span>🕌 نماز</span>
+                    </button>
+                    <button class="chart-type-btn" data-type="water">
+                        <span>💧 آب</span>
+                    </button>
+                    <button class="chart-type-btn" data-type="study">
+                        <span>📚 مطالعه</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chart-canvas">
+                <svg width="100%" height="100%" id="chartSvg">
+                    <defs>
+                        <linearGradient id="gradientUser1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#64ffda;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#4facfe;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="gradientUser2" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#9d4edd;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#c77dff;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <div class="chart-legend">
+                <div class="legend-item-elegant">
+                    <div class="legend-dot user1"></div>
+                    <span class="legend-label">آقا کارو</span>
+                </div>
+                <div class="legend-item-elegant">
+                    <div class="legend-dot user2"></div>
+                    <span class="legend-label">نرگس خانومم</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="elegant-tooltip" id="tooltip"></div>
+
+    <!-- صفحه تاریخچه -->
+    <div id="historyScreen" class="container hidden">
+        <div class="top-bar">
+            <button class="back-btn" id="backFromHistory">← بازگشت</button>
+        </div>
+        <h2>📖 تاریخچه روزها</h2>
+        <div class="history-list" id="historyList"></div>
+    </div>
+
+    <!-- صفحه تنظیمات -->
+    <div id="settingsScreen" class="container hidden">
+        <div class="top-bar">
+            <button class="back-btn" id="backFromSettings">← بازگشت</button>
+        </div>
+        <h2>⚙️ تنظیمات</h2>
+
+        <!-- تنظیم رمز عبور -->
+        <div class="settings-group">
+            <h3 style="color: #64ffda; margin-bottom: 15px;">🔐 رمز عبور</h3>
+            <div class="password-section">
+                <label style="color: #e0e0e0; display: block; margin-bottom: 10px;">
+                    رمز عبور جدید:
+                </label>
+                <input type="password" class="password-input" id="newPassword" placeholder="رمز عبور را وارد کنید">
+                <button class="set-password-btn" onclick="setPassword()">
+                    ذخیره رمز عبور 🔒
+                </button>
+                <div id="passwordStatus"></div>
+            </div>
+        </div>
+
+        <!-- آمار کلی -->
+        <div class="settings-group">
+            <h3 style="color: #64ffda; margin-bottom: 15px;">📊 آمار کلی</h3>
+            <div class="settings-item">
+                <span>روزهای ثبت شده:</span>
+                <strong id="totalDays" style="color: #64ffda;">0</strong>
+            </div>
+            <div class="settings-item">
+                <span>میانگین امتیاز:</span>
+                <strong id="avgScore" style="color: #64ffda;">0</strong>
+            </div>
+            <div class="settings-item">
+                <span>بهترین روز:</span>
+                <strong id="bestDay" style="color: #64ffda;">-</strong>
+            </div>
+        </div>
+
+        <button class="submit-btn" id="clearDataBtn" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">
+            🗑️ پاک کردن تمام داده‌ها
+        </button>
+    </div>
+
+    <script>
+        let currentUser = null;
+        let sleepQualityValue = 0;
+        let loveValue = '';
+        let mealData = {
+            breakfast: 2,
+            lunch: 2,
+            dinner: 2
+        };
+        let currentChartType = 'all';
+        let isAuthenticated = false;
+
+        const satisfactionEmojis = ['😩', '😮‍💨', '😊', '😃'];
+
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('selectedDate').value = today;
+        document.getElementById('selectedDate').max = today;
+
+        // Create particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Check if password is set
+        function checkPasswordRequired() {
+            const savedPassword = localStorage.getItem('app_password');
+            if (savedPassword) {
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('passwordScreen').classList.remove('hidden');
+            }
+        }
+
+        // Check password
+        function checkPassword() {
+            const enteredPassword = document.getElementById('loginPassword').value;
+            const savedPassword = localStorage.getItem('app_password');
+            
+            if (enteredPassword === savedPassword) {
+                isAuthenticated = true;
+                document.getElementById('passwordScreen').classList.add('hidden');
+                document.getElementById('loginScreen').classList.remove('hidden');
+                document.getElementById('loginError').style.display = 'none';
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        }
+
+        // Set password
+        function setPassword() {
+            const newPassword = document.getElementById('newPassword').value;
+            const statusDiv = document.getElementById('passwordStatus');
+            
+            if (newPassword.length < 4) {
+                statusDiv.className = 'password-status error';
+                statusDiv.textContent = 'رمز عبور باید حداقل 4 کاراکتر باشد';
+                statusDiv.style.display = 'block';
+                return;
+            }
+            
+            localStorage.setItem('app_password', newPassword);
+            statusDiv.className = 'password-status success';
+            statusDiv.textContent = '✅ رمز عبور با موفقیت تنظیم شد';
+            statusDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+                document.getElementById('newPassword').value = '';
+            }, 3000);
+        }
+
+        // Set Love Value
+        function setLove(value) {
+            loveValue = value;
+            document.querySelectorAll('.love-option').forEach(opt => opt.classList.remove('selected'));
+            event.target.closest('.love-option').classList.add('selected');
+        }
+
+        // Event Listeners
+        document.getElementById('user1Btn').addEventListener('click', function() {
+            selectUser('user1');
+        });
+
+        document.getElementById('user2Btn').addEventListener('click', function() {
+            selectUser('user2');
+        });
+
+        document.getElementById('startBtn').addEventListener('click', startApp);
+        document.getElementById('logoutBtn').addEventListener('click', logout);
+        document.getElementById('chartBtn').addEventListener('click', showChart);
+        document.getElementById('historyBtn').addEventListener('click', showHistory);
+        document.getElementById('settingsBtn').addEventListener('click', showSettings);
+        document.getElementById('backFromChart').addEventListener('click', hideChart);
+        document.getElementById('backFromHistory').addEventListener('click', hideHistory);
+        document.getElementById('backFromSettings').addEventListener('click', hideSettings);
+
+        document.getElementById('selectedDate').addEventListener('change', loadDateData);
+
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', function() {
+                setSleepQuality(parseInt(this.getAttribute('data-value')));
+            });
+        });
+
+        document.querySelectorAll('.meal-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const mealType = this.parentElement.id;
+                const value = parseInt(this.getAttribute('data-value'));
+                setMeal(mealType, value);
+            });
+        });
+
+        document.getElementById('bedTime').addEventListener('change', calculateScore);
+        document.getElementById('wakeTime').addEventListener('change', calculateScore);
+        document.getElementById('waterGlasses').addEventListener('input', calculateScore);
+        document.getElementById('fajr').addEventListener('change', calculateScore);
+        document.getElementById('dhuhr').addEventListener('change', calculateScore);
+        document.getElementById('asr').addEventListener('change', calculateScore);
+        document.getElementById('maghrib').addEventListener('change', calculateScore);
+        document.getElementById('isha').addEventListener('change', calculateScore);
+        document.getElementById('studyHours').addEventListener('input', calculateScore);
+        document.getElementById('satisfaction').addEventListener('input', function() {
+            updateSatisfaction(this.value);
+        });
+
+        document.getElementById('submitBtn').addEventListener('click', submitDay);
+
+        document.querySelectorAll('.chart-type-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.chart-type-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentChartType = this.getAttribute('data-type');
+                drawChart();
+            });
+        });
+
+        document.getElementById('clearDataBtn').addEventListener('click', function() {
+            if (confirm('آیا مطمئن هستید که می‌خواهید تمام داده‌ها را پاک کنید؟\n\nاین عمل قابل بازگشت نیست!')) {
+                if (confirm('واقعاً مطمئن هستید؟ 😢')) {
+                    const password = localStorage.getItem('app_password');
+                    localStorage.clear();
+                    if (password) {
+                        localStorage.setItem('app_password', password);
+                    }
+                    alert('تمام داده‌ها پاک شد!');
+                    location.reload();
+                }
+            }
+        });
+
+        // Allow Enter key for password
+        document.getElementById('loginPassword')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function selectUser(user) {
+            currentUser = user;
+            document.getElementById('user1Btn').classList.remove('active');
+            document.getElementById('user2Btn').classList.remove('active');
+            document.getElementById(user + 'Btn').classList.add('active');
+            document.getElementById('startBtn').disabled = false;
+        }
+
+        function startApp() {
+            if (!currentUser) {
+                alert('لطفاً یک کاربر انتخاب کنید');
+                return;
+            }
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('mainScreen').classList.remove('hidden');
+            updateDateDisplay();
+            loadDateData();
+        }
+
+        function logout() {
+            document.getElementById('mainScreen').classList.add('hidden');
+            const savedPassword = localStorage.getItem('app_password');
+            if (savedPassword) {
+                document.getElementById('passwordScreen').classList.remove('hidden');
+                isAuthenticated = false;
+            } else {
+                document.getElementById('loginScreen').classList.remove('hidden');
+            }
+            document.getElementById('user1Btn').classList.remove('active');
+            document.getElementById('user2Btn').classList.remove('active');
+            document.getElementById('startBtn').disabled = true;
+            currentUser = null;
+        }
+
+        function showChart() {
+            document.getElementById('mainScreen').classList.add('hidden');
+            document.getElementById('chartScreen').classList.remove('hidden');
+            setTimeout(drawChart, 100);
+        }
+
+        function hideChart() {
+            document.getElementById('chartScreen').classList.add('hidden');
+            document.getElementById('mainScreen').classList.remove('hidden');
+        }
+
+        function showHistory() {
+            document.getElementById('mainScreen').classList.add('hidden');
+            document.getElementById('historyScreen').classList.remove('hidden');
+            updateHistory();
+        }
+
+        function hideHistory() {
+            document.getElementById('historyScreen').classList.add('hidden');
+            document.getElementById('mainScreen').classList.remove('hidden');
+        }
+
+        function showSettings() {
+            document.getElementById('mainScreen').classList.add('hidden');
+            document.getElementById('settingsScreen').classList.remove('hidden');
+            updateStats();
+        }
+
+        function hideSettings() {
+            document.getElementById('settingsScreen').classList.add('hidden');
+            document.getElementById('mainScreen').classList.remove('hidden');
+        }
+
+        function updateDateDisplay() {
+            const date = new Date(document.getElementById('selectedDate').value);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            try {
+                document.getElementById('dateDisplay').textContent = 
+                    '📅 ' + date.toLocaleDateString('fa-IR', options);
+            } catch(e) {
+                document.getElementById('dateDisplay').textContent = 
+                    '📅 ' + date.toLocaleDateString();
+            }
+        }
+
+        function loadDateData() {
+            updateDateDisplay();
+            const selectedDate = document.getElementById('selectedDate').value;
+            const key = currentUser + '_' + selectedDate;
+            const savedData = localStorage.getItem(key);
+
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                
+                document.getElementById('bedTime').value = data.bedTime;
+                document.getElementById('wakeTime').value = data.wakeTime;
+                setSleepQuality(data.sleepQuality);
+                setMeal('breakfast', data.breakfast);
+                setMeal('lunch', data.lunch);
+                setMeal('dinner', data.dinner);
+                document.getElementById('waterGlasses').value = data.water;
+                document.getElementById('fajr').checked = data.prayers.fajr;
+                document.getElementById('dhuhr').checked = data.prayers.dhuhr;
+                document.getElementById('asr').checked = data.prayers.asr;
+                document.getElementById('maghrib').checked = data.prayers.maghrib;
+                document.getElementById('isha').checked = data.prayers.isha;
+                document.getElementById('studyHours').value = data.study;
+                document.getElementById('satisfaction').value = data.satisfaction;
+                updateSatisfaction(data.satisfaction);
+                loveValue = data.love || '';
+                
+                // بروزرسانی انتخاب عشق
+                if (loveValue) {
+                    document.querySelectorAll('.love-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                        if (opt.textContent.includes(loveValue.substring(0, 10))) {
+                            opt.classList.add('selected');
+                        }
+                    });
+                }
+                
+                calculateScore();
+            } else {
+                resetForm();
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('bedTime').value = '23:00';
+            document.getElementById('wakeTime').value = '07:00';
+            setSleepQuality(0);
+            setMeal('breakfast', 2);
+            setMeal('lunch', 2);
+            setMeal('dinner', 2);
+            document.getElementById('waterGlasses').value = 8;
+            document.getElementById('fajr').checked = false;
+            document.getElementById('dhuhr').checked = false;
+            document.getElementById('asr').checked = false;
+            document.getElementById('maghrib').checked = false;
+            document.getElementById('isha').checked = false;
+            document.getElementById('studyHours').value = 2;
+            document.getElementById('satisfaction').value = 3;
+            updateSatisfaction(3);
+            loveValue = '';
+            document.querySelectorAll('.love-option').forEach(opt => opt.classList.remove('selected'));
+            calculateScore();
+        }
+
+        function setSleepQuality(value) {
+            sleepQualityValue = value;
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                if (index < value) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+            calculateScore();
+        }
+
+        function setMeal(mealType, value) {
+            mealData[mealType] = value;
+            const options = document.getElementById(mealType).children;
+            for (let i = 0; i < options.length; i++) {
+                options[i].classList.remove('selected');
+            }
+            options[value].classList.add('selected');
+            calculateScore();
+        }
+
+        function updateSatisfaction(value) {
+            document.getElementById('satisfactionEmoji').textContent = 
+                satisfactionEmojis[value - 1];
+        }
+
+        function calculateScore() {
+            let score = 0;
+
+            const bedTime = document.getElementById('bedTime').value;
+            const wakeTime = document.getElementById('wakeTime').value;
+            const sleepHours = calculateSleepHours(bedTime, wakeTime);
+            
+            if (sleepHours >= 7 && sleepHours <= 9) {
+                score += 20;
+            } else if (sleepHours >= 6 && sleepHours < 7) {
+                score += 15;
+            } else if (sleepHours >= 5 && sleepHours < 6) {
+                score += 10;
+            }
+            
+            score += sleepQualityValue;
+
+            score += mealData.breakfast * 2;
+            score += mealData.lunch * 2;
+            score += mealData.dinner * 2;
+            
+            const water = parseInt(document.getElementById('waterGlasses').value) || 0;
+            if (water >= 8) score += 8;
+            else if (water >= 6) score += 6;
+            else if (water >= 4) score += 4;
+
+            if (document.getElementById('fajr').checked) score += 6;
+            if (document.getElementById('dhuhr').checked) score += 6;
+            if (document.getElementById('asr').checked) score += 6;
+            if (document.getElementById('maghrib').checked) score += 6;
+            if (document.getElementById('isha').checked) score += 6;
+
+            const study = parseFloat(document.getElementById('studyHours').value) || 0;
+            if (study >= 3) score += 15;
+            else if (study >= 2) score += 12;
+            else if (study >= 1) score += 8;
+            else if (study >= 0.5) score += 5;
+
+            const satisfaction = parseInt(document.getElementById('satisfaction').value);
+            score += satisfaction * 2.5;
+
+            document.getElementById('scoreNumber').textContent = Math.round(score);
+            
+            return Math.round(score);
+        }
+
+        function calculateSleepHours(bedTime, wakeTime) {
+            const bed = new Date('2000-01-01 ' + bedTime);
+            let wake = new Date('2000-01-01 ' + wakeTime);
+            
+            if (wake < bed) {
+                wake = new Date('2000-01-02 ' + wakeTime);
+            }
+            
+            const diff = wake - bed;
+            return diff / (1000 * 60 * 60);
+        }
+
+        function submitDay() {
+            if (!loveValue) {
+                alert('لطفاً میزان عشق را انتخاب کنید ❤️');
+                return;
+            }
+
+            const score = calculateScore();
+            const selectedDate = document.getElementById('selectedDate').value;
+            
+            const data = {
+                user: currentUser,
+                date: selectedDate,
+                bedTime: document.getElementById('bedTime').value,
+                wakeTime: document.getElementById('wakeTime').value,
+                sleepQuality: sleepQualityValue,
+                breakfast: mealData.breakfast,
+                lunch: mealData.lunch,
+                dinner: mealData.dinner,
+                water: document.getElementById('waterGlasses').value,
+                prayers: {
+                    fajr: document.getElementById('fajr').checked,
+                    dhuhr: document.getElementById('dhuhr').checked,
+                    asr: document.getElementById('asr').checked,
+                    maghrib: document.getElementById('maghrib').checked,
+                    isha: document.getElementById('isha').checked
+                },
+                study: document.getElementById('studyHours').value,
+                satisfaction: document.getElementById('satisfaction').value,
+                love: loveValue,
+                score: score
+            };
+
+            const key = currentUser + '_' + selectedDate;
+            localStorage.setItem(key, JSON.stringify(data));
+
+            showSuccessMessage(score);
+        }
+
+        function showSuccessMessage(score) {
+            const overlay = document.createElement('div');
+            overlay.className = 'overlay';
+            
+            const message = document.createElement('div');
+            message.className = 'success-animation';
+            
+            let emoji = '👏';
+            let text = 'عالی!';
+            if (score === 100) {
+                emoji = '🎉🎊';
+                text = 'کامل! فوق‌العاده!';
+            } else if (score >= 80) {
+                emoji = '🌟';
+                text = 'عالی!';
+            } else if (score >= 60) {
+                emoji = '👍';
+                text = 'خوب!';
+            } else {
+                emoji = '💪';
+                text = 'فردا بهتر!';
+            }
+            
+            message.innerHTML = '<div style="font-size: 4em; margin-bottom: 10px;">' + emoji + '</div>' +
+                '<div style="font-size: 2em; color: #64ffda; font-weight: bold; margin-bottom: 10px;">' + text + '</div>' +
+                '<div style="font-size: 1.2em;">امتیاز: ' + score + '/100</div>';
+            
+            document.body.appendChild(overlay);
+            document.body.appendChild(message);
+            
+            setTimeout(function() {
+                document.body.removeChild(overlay);
+                document.body.removeChild(message);
+            }, 2000);
+        }
+
+        function updateHistory() {
+            const historyList = document.getElementById('historyList');
+            historyList.innerHTML = '';
+            
+            const allData = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith(currentUser + '_') && key !== currentUser + '_settings' && key !== 'app_password') {
+                    const data = JSON.parse(localStorage.getItem(key));
+                    allData.push(data);
+                }
+            }
+            
+            allData.sort(function(a, b) {
+                return new Date(b.date) - new Date(a.date);
+            });
+            
+            if (allData.length === 0) {
+                historyList.innerHTML = '<p style="text-align: center; color: #e0e0e0; padding: 40px;">هنوز داده‌ای ثبت نشده است</p>';
+                return;
+            }
+            
+            allData.forEach(function(data) {
+                const item = document.createElement('div');
+                item.className = 'history-item';
+                
+                const date = new Date(data.date);
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                let dateStr;
+                try {
+                    dateStr = date.toLocaleDateString('fa-IR', options);
+                } catch(e) {
+                    dateStr = date.toLocaleDateString();
+                }
+                
+                item.innerHTML = '<div class="history-date">' + dateStr + '</div>' +
+                    '<div class="history-score">امتیاز: ' + data.score + '/100</div>';
+                
+                item.addEventListener('click', function() {
+                    document.getElementById('selectedDate').value = data.date;
+                    hideHistory();
+                    loadDateData();
+                });
+                
+                historyList.appendChild(item);
+            });
+        }
+
+        function calculateChartValue(data, type) {
+            if (!data) return null;
+
+            switch(type) {
+                case 'all':
+                    return data.score;
+
+                case 'sleep':
+                    const sleepHours = calculateSleepHours(data.bedTime, data.wakeTime);
+                    return sleepHours;
+
+                case 'food':
+                    const totalMeals = data.breakfast + data.lunch + data.dinner;
+                    return (totalMeals / 6) * 100;
+
+                case 'prayer':
+                    let prayerCount = 0;
+                    if (data.prayers.fajr) prayerCount++;
+                    if (data.prayers.dhuhr) prayerCount++;
+                    if (data.prayers.asr) prayerCount++;
+                    if (data.prayers.maghrib) prayerCount++;
+                    if (data.prayers.isha) prayerCount++;
+                    return (prayerCount / 5) * 100;
+
+                case 'water':
+                    return Math.min((parseInt(data.water) / 12) * 100, 100);
+
+                case 'study':
+                    return Math.min((parseFloat(data.study) / 5) * 100, 100);
+
+                default:
+                    return data.score;
+            }
+        }
+
+        function getTooltipContent(data, type) {
+            if (!data) return '';
+
+            const date = new Date(data.date);
+            let dateText;
+            try {
+                dateText = date.toLocaleDateString('fa-IR', { month: 'long', day: 'numeric' });
+            } catch(e) {
+                dateText = data.date;
+            }
+
+            let content = '<div class="tooltip-date">' + dateText + '</div><div class="tooltip-content">';
+
+            switch(type) {
+                case 'all':
+                    content += 'امتیاز کل: ' + data.score + '/100';
+                    break;
+
+                case 'sleep':
+                    const sleepHours = calculateSleepHours(data.bedTime, data.wakeTime);
+                    content += 'ساعت خواب: ' + sleepHours.toFixed(1) + ' ساعت<br>';
+                    content += 'کیفیت: ' + '⭐'.repeat(data.sleepQuality);
+                    break;
+
+                case 'food':
+                    const meals = ['نخوردم', 'کم', 'خوب'];
+                    content += 'صبحانه: ' + meals[data.breakfast] + '<br>';
+                    content += 'ناهار: ' + meals[data.lunch] + '<br>';
+                    content += 'شام: ' + meals[data.dinner] + '<br>';
+                    content += 'آب: ' + data.water + ' لیوان';
+                    break;
+
+                case 'prayer':
+                    content += 'نمازهای خوانده شده:<br>';
+                    if (data.prayers.fajr) content += '✅ صبح ';
+                    if (data.prayers.dhuhr) content += '✅ ظهر ';
+                    if (data.prayers.asr) content += '✅ عصر<br>';
+                    if (data.prayers.maghrib) content += '✅ مغرب ';
+                    if (data.prayers.isha) content += '✅ عشا';
+                    break;
+
+                case 'water':
+                    content += 'آب نوشیده: ' + data.water + ' لیوان<br>';
+                    content += 'هدف: 8-12 لیوان';
+                    break;
+
+                case 'study':
+                    content += 'مطالعه: ' + data.study + ' ساعت<br>';
+                    content += 'هدف: 2-3 ساعت';
+                    break;
+            }
+
+            content += '</div>';
+            return content;
+        }
+
+        function drawChart() {
+            const svg = document.getElementById('chartSvg');
+            const bbox = svg.getBoundingClientRect();
+            const width = bbox.width - 80;
+            const height = bbox.height - 80;
+            const padding = 40;
+
+            svg.innerHTML = `
+                <defs>
+                    <linearGradient id="gradientUser1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#64ffda;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#4facfe;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="gradientUser2" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#9d4edd;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#c77dff;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            `;
+
+            const last14Days = [];
+            const chartData = { user1: [], user2: [] };
+
+            for (let i = 13; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                const dateStr = date.toISOString().split('T')[0];
+                last14Days.push(dateStr);
+
+                const user1Data = localStorage.getItem('user1_' + dateStr);
+                const user2Data = localStorage.getItem('user2_' + dateStr);
+
+                const u1 = user1Data ? JSON.parse(user1Data) : null;
+                const u2 = user2Data ? JSON.parse(user2Data) : null;
+
+                chartData.user1.push({
+                    value: calculateChartValue(u1, currentChartType),
+                    data: u1
+                });
+                chartData.user2.push({
+                    value: calculateChartValue(u2, currentChartType),
+                    data: u2
+                });
+            }
+
+            let maxY = 100;
+            let yLabels = [0, 20, 40, 60, 80, 100];
+            
+            if (currentChartType === 'sleep') {
+                maxY = 12;
+                yLabels = [0, 3, 6, 9, 12];
+            }
+
+            // Grid lines
+            yLabels.forEach((label, i) => {
+                const y = padding + (height / (yLabels.length - 1)) * (yLabels.length - 1 - i);
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', padding);
+                line.setAttribute('y1', y);
+                line.setAttribute('x2', width + padding);
+                line.setAttribute('y2', y);
+                line.setAttribute('class', 'grid-line-elegant');
+                svg.appendChild(line);
+
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', padding - 10);
+                text.setAttribute('y', y + 5);
+                text.setAttribute('text-anchor', 'end');
+                text.setAttribute('class', 'axis-label-elegant');
+                text.textContent = currentChartType === 'sleep' ? label + 'h' : label;
+                svg.appendChild(text);
+            });
+
+            // X-axis
+            const step = width / (last14Days.length - 1);
+            last14Days.forEach((dateStr, index) => {
+                if (index % 2 === 0) {
+                    const x = padding + step * index;
+                    const date = new Date(dateStr);
+                    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    text.setAttribute('x', x);
+                    text.setAttribute('y', height + padding + 20);
+                    text.setAttribute('text-anchor', 'middle');
+                    text.setAttribute('class', 'axis-label-elegant');
+                    try {
+                        text.textContent = date.toLocaleDateString('fa-IR', { month: 'numeric', day: 'numeric' });
+                    } catch(e) {
+                        text.textContent = (date.getMonth() + 1) + '/' + date.getDate();
+                    }
+                    svg.appendChild(text);
+                }
+            });
+
+            // Draw lines
+            function drawLine(dataArray, className) {
+                let pathD = '';
+                const validPoints = [];
+
+                dataArray.forEach((item, index) => {
+                    if (item.value !== null) {
+                        const x = padding + step * index;
+                        const y = padding + height - (height * (item.value / maxY));
+                        validPoints.push({ x, y, data: item.data, date: last14Days[index] });
+                        pathD += (pathD === '' ? 'M' : ' L') + x + ',' + y;
+                    }
+                });
+
+                if (pathD) {
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path.setAttribute('d', pathD);
+                    path.setAttribute('class', 'chart-line-elegant ' + className);
+                    svg.appendChild(path);
+
+                    validPoints.forEach(point => {
+                        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                        circle.setAttribute('cx', point.x);
+                        circle.setAttribute('cy', point.y);
+                        circle.setAttribute('r', 5);
+                        circle.setAttribute('class', 'chart-point-elegant ' + className.replace('line', 'point'));
+                        
+                        // FIX: استفاده از mouseenter/mouseleave به جای click
+                        circle.addEventListener('mouseenter', function(e) {
+                            const tooltip = document.getElementById('tooltip');
+                            tooltip.innerHTML = getTooltipContent(point.data, currentChartType);
+                            
+                            // موقعیت دقیق tooltip
+                            const rect = svg.getBoundingClientRect();
+                            tooltip.style.left = (rect.left + e.clientX - rect.left) + 'px';
+                            tooltip.style.top = (rect.top + e.clientY - rect.top - 80) + 'px';
+                            tooltip.classList.add('show');
+                        });
+                        
+                        circle.addEventListener('mouseleave', function() {
+                            document.getElementById('tooltip').classList.remove('show');
+                        });
+                        
+                        svg.appendChild(circle);
+                    });
+                }
+            }
+
+            drawLine(chartData.user1, 'chart-line-user1');
+            drawLine(chartData.user2, 'chart-line-user2');
+        }
+
+        function updateStats() {
+            const allData = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith(currentUser + '_') && key !== currentUser + '_settings' && key !== 'app_password') {
+                    const data = JSON.parse(localStorage.getItem(key));
+                    allData.push(data);
+                }
+            }
+
+            document.getElementById('totalDays').textContent = allData.length;
+
+            if (allData.length > 0) {
+                const totalScore = allData.reduce(function(sum, item) {
+                    return sum + item.score;
+                }, 0);
+                document.getElementById('avgScore').textContent = Math.round(totalScore / allData.length);
+
+                const bestDay = allData.reduce(function(max, item) {
+                    return item.score > max.score ? item : max;
+                });
+
+                try {
+                    const date = new Date(bestDay.date);
+                    document.getElementById('bestDay').textContent = 
+                        date.toLocaleDateString('fa-IR') + ' (' + bestDay.score + ')';
+                } catch(e) {
+                    document.getElementById('bestDay').textContent = bestDay.date + ' (' + bestDay.score + ')';
+                }
+            } else {
+                document.getElementById('avgScore').textContent = '0';
+                document.getElementById('bestDay').textContent = '-';
+            }
+        }
+
+        // Initialize
+        checkPasswordRequired();
+        calculateScore();
+
+        // Prevent hiding tooltip on scroll
+        document.addEventListener('scroll', function() {
+            const tooltip = document.getElementById('tooltip');
+            if (tooltip.classList.contains('show')) {
+                // Keep showing
+            }
+        });
+    </script>
+</body>
+</html>
